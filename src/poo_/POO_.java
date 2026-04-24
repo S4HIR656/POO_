@@ -4,6 +4,8 @@
  */
 package poo_;
 
+import java.util.Scanner;
+
 /**
  *
  * @author SAHIR
@@ -18,6 +20,8 @@ public class POO_ {
         // TODO code application logic here
         
         System.out.println("T-T");
+        Scanner sc = new Scanner(System.in);
+        
     }
     
 }
