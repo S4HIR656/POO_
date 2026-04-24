@@ -15,7 +15,6 @@ public class POO_ {
      */
     public static void main(String[] args) {
         
-        System.out.print("Holaxdxdxddxdxdxdxddddddx");
         // TODO code application logic here
         
         System.out.println("T-T");
