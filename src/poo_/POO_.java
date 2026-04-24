@@ -20,6 +20,7 @@ public class POO_ {
         // TODO code application logic here
         
         System.out.println("T-T");
+        System.out.println("HOLA :");
         Scanner sc = new Scanner(System.in);
         
     }
