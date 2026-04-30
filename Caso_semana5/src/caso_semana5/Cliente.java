@@ -14,10 +14,19 @@ public class Cliente {
         private String Amaterno;
         private String nombre;
         private String t_doc;
-        private int doc;
+        private String doc;
         private int edad;
         private String correo;
-        private int celular;
+        private String celular;
+        private String cate;
+
+    public String getCate() {
+        return cate;
+    }
+
+    public void setCate(String cate) {
+        this.cate = cate;
+    }
     
     public String getApaterno() {
         return Apaterno;
@@ -51,12 +60,40 @@ public class Cliente {
         this.t_doc = t_doc;
     }
 
-    public int getDoc() {
+    public String getDoc() {
         return doc;
     }
 
-    public void setDoc(int doc) {
-        this.doc = doc;
+    public void setDoc(String doc) {
+
+    if (this.t_doc.equalsIgnoreCase("DNI")) {
+
+        if (doc == null || doc.length() != 8) {
+            throw new IllegalArgumentException("El DNI debe tener 8 dígitos");
+        }
+        for (int i = 0; i < doc.length(); i++) {
+            if (!Character.isDigit(doc.charAt(i))){
+                throw new IllegalArgumentException("El DNI solo debe contener números");
+            }
+            }
+
+        } else if (this.t_doc.equalsIgnoreCase("CE")) {
+
+            if (doc == null || doc.length() != 9) {
+            throw new IllegalArgumentException("El CE debe tener 9 dígitos");
+            }
+            
+            for (int i = 0; i < doc.length(); i++) {
+            if (!Character.isDigit(doc.charAt(i))) {
+                throw new IllegalArgumentException("El CE debe contener solo números");
+                }
+            }
+
+        } else {
+            throw new IllegalArgumentException("Tipo de documento no identificado.");
+        }
+
+    this.doc = doc;
     }
 
     public int getEdad() {
@@ -64,6 +101,9 @@ public class Cliente {
     }
 
     public void setEdad(int edad) {
+        if (edad <= 0) {
+        throw new IllegalArgumentException("La edad debe ser mayor a 0");
+        }
         this.edad = edad;
     }
 
@@ -75,11 +115,20 @@ public class Cliente {
         this.correo = correo;
     }
 
-    public int getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(int celular) {
+    public void setCelular(String celular) {
+        if (celular == null || celular.length() != 9) {
+        throw new IllegalArgumentException("El celular debe tener 9 dígitos");
+    }
+
+    for (int i = 0; i < celular.length(); i++) {
+        if (!Character.isDigit(celular.charAt(i))) {
+            throw new IllegalArgumentException("El celular solo debe contener números");
+        }
+    }
         this.celular = celular;
     }
  
@@ -87,8 +136,10 @@ public class Cliente {
         
         System.out.println("Apellidos: "+this.Apaterno+" "+this.Amaterno+
                 " Nombre: "+this.nombre+" Tipo de doc: "+this.t_doc+" Número de doc: "+this.doc+
-                " Edad: "+ this.edad+" Correo: "+this.correo+"@klim.com"+" Celular: "+this.celular);
+                " Edad: "+ this.edad+" Correo: "+this.correo +" Celular: "+this.celular +
+                " Categoría: " + this.cate);
     }    
+     
 }
 
 

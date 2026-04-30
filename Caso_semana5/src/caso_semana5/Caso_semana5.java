@@ -19,47 +19,64 @@ public class Caso_semana5 {
         // TODO code application logic here
         
         Scanner sc = new Scanner(System.in);
+        
         C_cliente ctrl = new C_cliente();
         
         String rpta = "s";
         
         while (rpta.equals("s")){
+            try{
             System.out.println("Ingresa Apellido Paterno: ");
             String Apaterno = sc.nextLine();
             System.out.println("Ingresa Apellido Materno: ");
             String Amaterno = sc.nextLine();
             System.out.println("Ingresa nombre: ");
             String nombre = sc.nextLine();
-            System.out.println("Ingresa tipo de documento: ");
+            System.out.println("Ingresa tipo de documento (DNI / CE): ");
             String t_doc = sc.nextLine();
             System.out.println("Ingresa numero de documento: ");
-            int doc = sc.nextInt();
+            String doc = sc.nextLine();
+            
+            Cliente c = new Cliente();
+            c.setT_doc(t_doc);
+            c.setDoc(doc); 
+        
             System.out.println("Ingresa edad: ");
-            int edad = sc.nextInt();
-            sc.nextLine();
+            int edad = Integer.parseInt(sc.nextLine());
             System.out.println("Ingresa correo: ");
             String correo = sc.nextLine();
             System.out.println("Ingresa celular: ");
-            int cel = sc.nextInt();
+            String cel = sc.nextLine();
+            String cate; 
             
-            Cliente c = new Cliente();
+            if (edad <= 10){
+            cate = "Niño";
+            }
+            else if (edad <= 17 && edad >= 11){
+             cate = "Adolescente";
+            }
+            else {
+             cate = "Adulto";
+            }
+            
             
             c.setApaterno(Apaterno);
             c.setAmaterno(Amaterno);
             c.setNombre(nombre);
-            c.setT_doc(t_doc);
-            c.setDoc(doc);
             c.setEdad(edad);
             c.setCorreo(correo);
             c.setCelular(cel);
+            c.setCate(cate);
+          
+            ctrl.agregar(c);
             
             System.out.println("¿Desea ingresar mas clientes? (S/N)");
-            sc.nextLine();
-             rpta = sc.nextLine();
-             
-             
-            ctrl.agregar(c);
-   
+            rpta = sc.nextLine().toLowerCase();}
+            
+            catch(IllegalArgumentException e){
+            
+             System.out.println("Error: " + e.getMessage());
+             System.out.println("Reiniciando...\n");}
         }
         
         System.out.println("Lista de clientes");
