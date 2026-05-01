@@ -80,7 +80,7 @@ public class Caso_semana5 {
         }
         
         System.out.println("Lista de clientes");
-       
+        ctrl.Mostrar();
         
     } 
 }
