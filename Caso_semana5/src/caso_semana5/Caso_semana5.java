@@ -22,9 +22,9 @@ public class Caso_semana5 {
         
         C_cliente ctrl = new C_cliente();
         
-        String rpta = "s";
+        String rpta = "si";
         
-        while (rpta.equals("s")){
+        while (rpta.equals("si")){
             try{
             System.out.println("Ingresa Apellido Paterno: ");
             String Apaterno = sc.nextLine();
@@ -70,7 +70,7 @@ public class Caso_semana5 {
           
             ctrl.agregar(c);
             
-            System.out.println("¿Desea ingresar mas clientes? (S/N)");
+            System.out.println("¿Desea ingresar mas clientes? (Si/No)");
             rpta = sc.nextLine().toLowerCase();}
             
             catch(IllegalArgumentException e){
@@ -79,7 +79,7 @@ public class Caso_semana5 {
              System.out.println("Reiniciando...\n");}
         }
         
-        System.out.println("Lista de clientes");
+        System.out.println("Lista de clientes: ");
         ctrl.Mostrar();
         
     } 
