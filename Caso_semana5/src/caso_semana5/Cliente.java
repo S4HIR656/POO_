@@ -19,7 +19,24 @@ public class Cliente {
         private String correo;
         private String celular;
         private String cate;
+        
+        public Cliente(String nombre, String Apaterno, String Amaterno, String t_doc, String doc, 
+                   int edad, String correo, String celular, String cate) 
+        {
+        this.nombre = nombre;
+        this.Apaterno = Apaterno;
+        this.Amaterno = Amaterno;
+        this.t_doc = t_doc;
+        setDoc(doc);
+        setEdad(edad);
+        this.correo = correo;
+        setCelular(celular);
+        this.cate = cate;
+    }
 
+    // No borres el constructor vacío por si lo usas en otro lado:
+    public Cliente() {
+    }
     public String getCate() {
         return cate;
     }
